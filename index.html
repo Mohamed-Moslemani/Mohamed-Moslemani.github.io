@@ -97,7 +97,7 @@
 
   <!-- NAV -->
   <nav>
-    <div class="logo"><em>NH</em></div>
+    <div class="logo"></div>
     <ul>
       <li><a href="#about">About</a></li>
       <li><a href="#projects">Projects</a></li>
@@ -114,12 +114,52 @@
     <p data-animate style="animation-delay:.15s">I design and code systems that blend hardware precision with software intelligence.</p>
     <a class="btn" href="#projects" data-animate style="animation-delay:.3s">See my projects</a>
   </section>
+<!-- ABOUT -->
+<section id="about">
+  <h2 class="section-title">About Me</h2>
 
-  <!-- ABOUT -->
-  <section id="about">
-    <h2 class="section-title">About Me</h2>
-    <p>Hey, I’m <strong>Nadine Hamzeh</strong>, 21-year-old computer-engineering student at the Islamic University of Lebanon. I turn abstract ideas into real-world tech. Experience? Minimal. Drive? Maxed.</p>
-  </section>
+  <p>
+    I’m <strong>Nadine Hamzeh</strong>, a fifth-year Computer Engineering student
+    obsessed with the seam where hardware precision meets software elegance.
+    Over the last four years I’ve split my time between the lab oscilloscope and
+    the command line, hacking together everything from RTL‐level FPGA designs to
+    cloud-native inference pipelines. I thrive on deep dives—whether that’s
+    wrangling Verilog timing constraints or squeezing the last clock cycle out
+    of a C++ SIMD kernel.
+  </p>
+
+  <p>
+    My current focus is edge-AI acceleration: building lightweight CNN
+    accelerators that turn a cheap microcontroller into a real-time vision
+    system. I’ve taped-out a RISC-V SoC in Skywater 130 nm, authored Linux
+    device-tree overlays for custom GPIO IP, and optimised PyTorch models for
+    quantised deployment with TVM. When things break (and they always do) I
+    start with the scope probe, end with <code>perf</code>, and document every
+    micro-watt I shave in between.
+  </p>
+
+  <ul style="margin-top:1.5rem;line-height:1.8">
+    <li><strong>Digital design:</strong> VHDL/Verilog, Quartus &amp; Vivado, AMBA AXI-4 interconnect</li>
+    <li><strong>Embedded systems:</strong> STM32, ESP32, bare-metal C &amp; RTOS, Zephyr</li>
+    <li><strong>High-performance C++:</strong> Eigen, OpenMP, vector intrinsics, cache-aware data layouts</li>
+    <li><strong>AI toolchain:</strong> PyTorch ➜ ONNX ➜ TVM, mixed-precision quantisation, INT8 GEMM kernels</li>
+    <li><strong>Dev-ops:</strong> Docker-Compose, GitHub Actions, IaC with Terraform</li>
+    <li><strong>Research flair:</strong> co-authored a conference poster on energy-aware CNN pruning; reviewer for IEEE
+        <em>Embedded Systems Letters</em></li>
+  </ul>
+
+  <p style="margin-top:1.5rem">
+    Short version? Give me a tough problem and a deadline—I’ll hand you a
+    working prototype and a performance report that makes the baseline look
+    silly.
+  </p>
+</section>
+
+
+
+
+
+
 
   <!-- PROJECTS -->
   <section id="projects">
