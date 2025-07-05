@@ -3,103 +3,115 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nadine Hamzeh | Computer Engineering Student</title>
+  <title>Nadine Hamzeh | Computer & Communications Engineer</title>
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;900&display=swap" rel="stylesheet">
 
   <!-- Devicon icons -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
+  <!-- Font Awesome for social icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha512-bKb3YfDQ+N5K01Cz/5Q9btLvphJkQoOwxTA3K8EytrBVLLRCpeSf7vFKdJcN2aVel9xk2eqma7mQArihz2q8Zg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
   <style>
     :root{
-      --accent-light:#f7a8d1; --accent:#e7519d; --accent-deep:#9c1e6e;
-      --bg-dark:#1b1120;      --bg-light:#26172d;
-      --text-light:#fafaff;   --text-muted:#9b88a1;
+      /* brand palette */
+      --accent-50:#ffe5f1; --accent-100:#f7a8d1; --accent-300:#e7519d; --accent-500:#c92f82; --accent-700:#9c1e6e;
+      --bg-900:#120a18;   --bg-800:#1b1120;   --bg-700:#26172d;   --bg-600:#321d3a;
+      --text-100:#ffffff; --text-300:#d5c9d9; --text-500:#9b88a1;
     }
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{background:var(--bg-dark);color:var(--text-light);font-family:'Inter',sans-serif;scroll-behavior:smooth}
-    body{line-height:1.6}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html,body{background:var(--bg-900);color:var(--text-100);font-family:'Inter',sans-serif;scroll-behavior:smooth}
+    body{line-height:1.7;-webkit-font-smoothing:antialiased}
 
     /* ---------- PARTICLES LAYER ---------- */
-    #particles-js{
-      position:fixed;top:0;left:0;width:100%;height:100%;
-      z-index:0;pointer-events:none; /* lifted above body background */
-    }
+    #particles-js{position:fixed;top:0;left:0;width:100%;height:100%;z-index:0;pointer-events:none}
 
     /* Links */
-    a{color:var(--accent-light);text-decoration:none;transition:color .2s}
-    a:hover{color:var(--accent)}
+    a{color:var(--accent-100);text-decoration:none;transition:color .2s}
+    a:hover{color:var(--accent-300)}
 
     /* Navigation */
-    nav{position:fixed;top:0;left:0;width:100%;backdrop-filter:blur(8px);
-        background:rgba(27,17,32,.6);z-index:1000;padding:.75rem 2rem;
-        display:flex;justify-content:space-between;align-items:center}
-    nav .logo{font-weight:700;font-size:1.2rem;letter-spacing:.5px}
+    nav{position:fixed;top:0;left:0;width:100%;backdrop-filter:blur(10px);background:rgba(18,10,24,.55);z-index:1000;padding:.8rem 2rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.05)}
+    nav .logo{font-weight:700;font-size:1.25rem;letter-spacing:.4px;color:var(--accent-100)}
     nav ul{list-style:none;display:flex;gap:1.5rem}
+    nav li a{font-weight:500;font-size:.95rem;color:var(--text-300);position:relative;padding-bottom:2px}
+    nav li a::after{content:'';position:absolute;left:0;bottom:0;width:0;height:2px;background:var(--accent-300);transition:width .3s}
+    nav li a:hover::after{width:100%}
 
     /* Sections */
-    section{padding:100px 8vw;min-height:100vh}
+    section{padding:120px 8vw 80px;min-height:100vh;position:relative;z-index:1}
+    .section-dark{background:var(--bg-800)}
+
+    /* Section Title */
+    .section-title{font-size:2.25rem;font-weight:700;margin-bottom:2.5rem;position:relative;display:inline-block;color:var(--accent-100)}
+    .section-title::after{content:'';position:absolute;left:0;bottom:-8px;width:70px;height:3px;background:var(--accent-100);border-radius:999px}
 
     /* Hero */
-    .hero{display:flex;flex-direction:column;gap:1.5rem;align-items:flex-start}
-    .hero h1{font-size:clamp(2.5rem,5vw,4rem);font-weight:900;
-             background:linear-gradient(90deg,var(--accent-light),var(--accent));
-             -webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero p{max-width:600px;font-size:1.1rem;color:var(--text-muted)}
-    .avatar{width:140px;height:140px;border-radius:50%;object-fit:cover;border:3px solid var(--accent)}
+    .hero{display:flex;flex-direction:column;gap:1.8rem;align-items:flex-start}
+    .hero .name{font-size:clamp(2.4rem,6vw,4.2rem);font-weight:900;background:linear-gradient(90deg,var(--accent-100),var(--accent-300));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+    .hero .role{font-size:1.3rem;font-weight:500;color:var(--text-300)}
+    .avatar{width:160px;height:160px;border-radius:50%;object-fit:cover;border:4px solid var(--accent-300);filter:drop-shadow(0 0 10px rgba(231,81,157,.35))}
+    .contact-links{display:flex;gap:1.2rem;margin-top:.5rem}
+    .contact-links a{display:flex;align-items:center;justify-content:center;width:40px;height:40px;border-radius:50%;background:var(--bg-700);border:1px solid transparent;transition:all .3s}
+    .contact-links a i{font-size:18px;color:var(--accent-100)}
+    .contact-links a:hover{border-color:var(--accent-100);transform:translateY(-3px)}
 
-    .btn{padding:.75rem 1.5rem;border:2px solid var(--accent-light);border-radius:8px;
-         background:transparent;color:var(--accent-light);font-weight:600;cursor:pointer;
-         transition:background .3s,color .3s}
-    .btn:hover{background:var(--accent-light);color:var(--bg-dark)}
+    /* Buttons */
+    .btn{padding:.8rem 1.6rem;border:2px solid var(--accent-100);border-radius:10px;background:transparent;color:var(--accent-100);font-weight:600;cursor:pointer;transition:background .3s,color .3s}
+    .btn:hover{background:var(--accent-100);color:var(--bg-900)}
 
-    .section-title{font-size:2rem;font-weight:700;margin-bottom:2rem;position:relative}
-    .section-title::after{content:'';position:absolute;left:0;bottom:-8px;width:60px;height:3px;
-                          background:var(--accent-light)}
-
+    /* Grid */
     .grid{display:grid;gap:2rem}
-    #projects .grid{grid-template-columns:repeat(auto-fill,minmax(280px,1fr))}
-    .card{background:var(--bg-light);border:1px solid var(--accent-deep);border-radius:12px;
-          padding:1.5rem;transition:transform .3s,border .3s}
-    .card:hover{transform:translateY(-6px);border-color:var(--accent-light)}
+    .grid-3{grid-template-columns:repeat(auto-fill,minmax(300px,1fr))}
 
-    .timeline{display:flex;flex-direction:column;gap:1.5rem;margin-left:1rem;
-              border-left:2px solid var(--accent-deep);padding-left:1.5rem}
+    /* Card */
+    .card{background:var(--bg-700);border:1px solid rgba(255,255,255,.06);border-radius:16px;padding:1.6rem;transition:transform .35s,box-shadow .35s}
+    .card:hover{transform:translateY(-6px);box-shadow:0 8px 16px rgba(0,0,0,.4)}
+    .card h3{margin-bottom:.6rem;font-size:1.2rem;color:var(--accent-100)}
+    .card p{color:var(--text-500);font-size:.95rem}
+
+    /* Timeline */
+    .timeline{display:flex;flex-direction:column;gap:2rem;margin-left:.8rem;border-left:2px solid var(--accent-500);padding-left:1.6rem}
     .timeline-item{position:relative}
-    .timeline-item::before{content:'';position:absolute;left:-1.15rem;top:.25rem;width:10px;height:10px;
-                           border-radius:50%;background:var(--accent-light)}
+    .timeline-item::before{content:'';position:absolute;left:-1.15rem;top:.35rem;width:11px;height:11px;border-radius:50%;background:var(--accent-100);box-shadow:0 0 0 3px var(--bg-900)}
+    .timeline-item h3{font-size:1.1rem;font-weight:600;color:var(--accent-100)}
+    .timeline-item span{font-size:.85rem;color:var(--text-500)}
+    .timeline-item p{font-size:.95rem;color:var(--text-500);margin-top:.4rem}
 
-    .skills-grid{display:grid;gap:2rem;margin-top:1rem;
-                 grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
-    .skill{display:flex;flex-direction:column;align-items:center;gap:.5rem;text-align:center}
-    .skill i{font-size:48px;color:var(--accent-light)}
-    .skill span{font-size:.9rem;color:var(--text-muted)}
+    /* Skills */
+    .skills-grid{display:grid;gap:2rem;margin-top:1.2rem;grid-template-columns:repeat(auto-fill,minmax(110px,1fr))}
+    .skill{display:flex;flex-direction:column;align-items:center;gap:.6rem}
+    .skill i{font-size:48px;color:var(--accent-100)}
+    .skill span{font-size:.9rem;color:var(--text-500)}
 
+    /* Contact Form */
     form{display:flex;flex-direction:column;gap:1rem;max-width:500px}
-    input,textarea{padding:.75rem;background:var(--bg-light);border:1px solid var(--accent-deep);
-                   border-radius:6px;color:var(--text-light)}
-    input:focus,textarea:focus{outline:none;border-color:var(--accent-light)}
+    input,textarea{padding:.9rem;background:var(--bg-700);border:1px solid rgba(255,255,255,.06);border-radius:8px;color:var(--text-100);font-size:.95rem}
+    input:focus,textarea:focus{outline:none;border-color:var(--accent-100)}
 
-    footer{text-align:center;padding:2rem 0;font-size:.9rem;color:var(--text-muted);
-           background:var(--bg-light)}
+    /* Footer */
+    footer{text-align:center;padding:2rem 0;font-size:.85rem;color:var(--text-500);background:var(--bg-800)}
 
-    @keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}
-                      100%{opacity:1;transform:translateY(0)}}
+    /* FadeUp Animation */
+    @keyframes fadeUp{0%{opacity:0;transform:translateY(20px)}100%{opacity:1;transform:translateY(0)}}
     [data-animate]{opacity:0;animation:fadeUp .8s forwards}
+
   </style>
 </head>
 <body>
-  <!-- PARTICLES CONTAINER -->
+  <!-- PARTICLES BACKGROUND -->
   <div id="particles-js"></div>
 
-  <!-- NAV -->
+  <!-- NAVIGATION -->
   <nav>
-    <div class="logo"></div>
+    <div class="logo">Nadine Hamzeh</div>
     <ul>
       <li><a href="#about">About</a></li>
+      <li><a href="#summary">Summary</a></li>
+      <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#skills">Skills</a></li>
@@ -109,82 +121,101 @@
 
   <!-- HERO -->
   <section id="hero" class="hero">
-    <img class="avatar" src="avatar.jpg" alt="Avatar" data-animate style="opacity: 0.7;">
-    <h1 class="typed-title" data-animate>Computer Engineering Student</h1>
-    <p data-animate style="animation-delay:.15s">I design and code systems that blend hardware precision with software intelligence.</p>
-    <a class="btn" href="#projects" data-animate style="animation-delay:.3s">See my projects</a>
+    <img class="avatar" src="avatar.jpg" alt="Avatar" data-animate>
+    <h1 class="name" data-animate style="animation-delay:.1s">Nadine Hamzeh</h1>
+    <p class="role" data-animate style="animation-delay:.2s">Computer & Communications Engineer</p>
+    <div class="contact-links" data-animate style="animation-delay:.3s">
+      <a href="https://www.linkedin.com/in/nadine-hamzeh" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+      <a href="mailto:nadine@example.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+      <a href="tel:+96181652925" aria-label="Phone"><i class="fa-solid fa-phone"></i></a>
+    </div>
+    <a class="btn" href="#projects" data-animate style="animation-delay:.4s">See my work</a>
   </section>
-<!-- ABOUT -->
-<section id="about">
-  <h2 class="section-title">About Me</h2>
 
-  <p>
-    I’m <strong>Nadine Hamzeh</strong>, a fifth-year Computer Engineering student
-    obsessed with the seam where hardware precision meets software elegance.
-    Over the last four years I’ve split my time between the lab oscilloscope and
-    the command line, hacking together everything from RTL‐level FPGA designs to
-    cloud-native inference pipelines. I thrive on deep dives—whether that’s
-    wrangling Verilog timing constraints or squeezing the last clock cycle out
-    of a C++ SIMD kernel.
-  </p>
+  <!-- SUMMARY -->
+  <section id="summary" class="section-dark">
+    <h2 class="section-title">Professional Summary</h2>
+    <p>
+      Motivated and detail-oriented 4th-year Computer & Communication Engineering student with a CGPA of 3.7/4.0. Strong passion for backend engineering and web development, blending solid theoretical foundations with hands-on experience in Python, C++, and modern JavaScript stacks. Thrives in fast-paced environments, quickly translating requirements into robust, maintainable code. Seeking internship or entry-level roles where I can contribute immediately and grow into a high-impact developer.
+    </p>
+  </section>
 
-  <p>
-    My current focus is edge-AI acceleration: building lightweight CNN
-    accelerators that turn a cheap microcontroller into a real-time vision
-    system. I’ve taped-out a RISC-V SoC in Skywater 130 nm, authored Linux
-    device-tree overlays for custom GPIO IP, and optimised PyTorch models for
-    quantised deployment with TVM. When things break (and they always do) I
-    start with the scope probe, end with <code>perf</code>, and document every
-    micro-watt I shave in between.
-  </p>
+  <!-- ABOUT (PERSONAL PROFILE) -->
+  <section id="about">
+    <h2 class="section-title">About Me</h2>
+    <p>
+      I live at the intersection of hardware precision and software elegance. Whether I’m debugging Verilog timing on an FPGA or deploying a FastAPI service to Docker Swarm, I obsess over details and ship solutions that work. My current fascination is edge-AI acceleration: squeezing convolutional networks onto resource-constrained microcontrollers without sacrificing latency or watt-hours.
+    </p>
+    <p style="margin-top:1.3rem">
+      Tools I juggle daily: STM32 and ESP32 toolchains, C++20 with vector intrinsics, PyTorch ➜ ONNX ➜ TVM, and a healthy dose of GitHub Actions. Give me a tough problem and a tight deadline—I'll reply with a working prototype and a performance report.
+    </p>
+  </section>
 
-  <ul style="margin-top:1.5rem;line-height:1.8">
-    <li><strong>Digital design:</strong> VHDL/Verilog, Quartus &amp; Vivado, AMBA AXI-4 interconnect</li>
-    <li><strong>Embedded systems:</strong> STM32, ESP32, bare-metal C &amp; RTOS, Zephyr</li>
-    <li><strong>High-performance C++:</strong> Eigen, OpenMP, vector intrinsics, cache-aware data layouts</li>
-    <li><strong>AI toolchain:</strong> PyTorch ➜ ONNX ➜ TVM, mixed-precision quantisation, INT8 GEMM kernels</li>
-    <li><strong>Dev-ops:</strong> Docker-Compose, GitHub Actions, IaC with Terraform</li>
-    <li><strong>Research flair:</strong> co-authored a conference poster on energy-aware CNN pruning; reviewer for IEEE
-        <em>Embedded Systems Letters</em></li>
-  </ul>
-
-  <p style="margin-top:1.5rem">
-    Short version? Give me a tough problem and a deadline—I’ll hand you a
-    working prototype and a performance report that makes the baseline look
-    silly.
-  </p>
-</section>
-
-
-
-
-
-
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section-dark">
+    <h2 class="section-title">Work Experience</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Freelance Tutor (Remote)</h3>
+        <span>Feb 2023 – Present</span>
+        <p>
+          • Built and delivered custom university projects across multiple tech stacks.<br>
+          • Tutored students in mathematics, programming, and algorithmic problem-solving.<br>
+          • Maintained 100% satisfaction through concise explanations and punctual delivery.
+        </p>
+      </div>
+      <div class="timeline-item">
+        <h3>Business Analyst Intern — Softura (Remote)</h3>
+        <span>Sep 2023 – Dec 2023</span>
+        <p>
+          • Analyzed internal workflows, flagging inefficiencies and proposing clear improvements.<br>
+          • Built lightweight automation scripts and dashboards to streamline daily reporting.<br>
+          • Resolved cross-team data discrepancies, reducing manual reconciliation workload.
+        </p>
+      </div>
+    </div>
+  </section>
 
   <!-- PROJECTS -->
   <section id="projects">
     <h2 class="section-title">Selected Projects</h2>
-    <div class="grid">
-      <div class="card"><h3>MASwin3D</h3><p>Masked Autoencoding Swin Transformer for 3D object reconstruction.</p></div>
-      <div class="card"><h3>PayMeNow.ai</h3><p>SaaS that automates invoice generation, reminders, and legal escalation.</p></div>
-      <div class="card"><h3>Nativia</h3><p>Voice-enabled AI best friend powered by multi-modal transformer agents.</p></div>
+    <div class="grid grid-3">
+      <div class="card"><h3>LifeSync — SaaS</h3><p>AI-driven productivity hub unifying tasks, calendar, and notes. Backend: FastAPI, MongoDB, JWT, Google OAuth. Supports natural-language scheduling via Google Calendar API. Built for scale with plugin-friendly architecture.</p></div>
+      <div class="card"><h3>MASwin3D</h3><p>Masked Autoencoding Swin Transformer for 3D object reconstruction, utilising linear positional embeddings and shifted-window attention for voxelised inputs.</p></div>
+      <div class="card"><h3>Nativia</h3><p>Voice-enabled AI companion leveraging multimodal transformer agents with Bark TTS for natural speech output and Whisper for robust speech recognition.</p></div>
     </div>
   </section>
 
   <!-- EDUCATION -->
-  <section id="education">
+  <section id="education" class="section-dark">
     <h2 class="section-title">Education</h2>
     <div class="timeline">
       <div class="timeline-item">
-        <h3>BEng Computer Engineering — Islamic University of Lebanon</h3>
-        <span>2020 – 2025 (expected)</span>
-        <p>Embedded systems, HPC, and AI-accelerated applications.</p>
+        <h3>BEng in Computer & Communication Engineering — Islamic University of Lebanon</h3>
+        <span>2020 – 2026 (expected) • CGPA: 3.7/4.0</span>
+        <p>Core focus on embedded systems, high-performance computing, and AI-accelerated applications.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- VOLUNTEER WORK -->
+  <section id="volunteer">
+    <h2 class="section-title">Volunteer Work</h2>
+    <div class="timeline">
+      <div class="timeline-item">
+        <h3>Member — Physics & Technology Team, I Believe in Science</h3>
+        <span>2022 – 2023</span>
+        <p>
+          • Collaborated with a 10-person team, attending bi-weekly planning meetings.<br>
+          • Translated and edited 10+ scientific articles for public dissemination.<br>
+          • Ensured technical accuracy and engaging Arabic prose for a broad audience.
+        </p>
       </div>
     </div>
   </section>
 
   <!-- SKILLS -->
-  <section id="skills">
+  <section id="skills" class="section-dark">
     <h2 class="section-title">Technical Skills</h2>
     <div class="skills-grid">
       <div class="skill"><i class="devicon-c-plain"></i><span>C</span></div>
@@ -226,8 +257,8 @@
     // Initialize Particles
     particlesJS('particles-js',{
       particles:{
-        number:{value:80,density:{enable:true,value_area:800}},
-        color:{value:['#f7a8d1','#e7519d','#9c1e6e']},
+        number:{value:90,density:{enable:true,value_area:900}},
+        color:{value:['#f7a8d1','#e7519d','#c92f82']},
         shape:{type:'circle'},
         opacity:{value:0.35,random:true},
         size:{value:3,random:true},
@@ -238,12 +269,20 @@
       retina_detect:true
     });
 
-    // Typing effect for main title
-    new Typed('.typed-title',{
-      strings:['Computer Engineering Student'],
-      typeSpeed:70,
-      backSpeed:40,
-      backDelay:2500,
+    // Reveal animations
+    const observer = new IntersectionObserver(entries => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){entry.target.style.animationDelay = entry.target.dataset.delay || '0s';entry.target.setAttribute('data-animate','');}
+      });
+    },{threshold:0.15});
+    document.querySelectorAll('[data-animate]').forEach(el => observer.observe(el));
+
+    // Typed effect (optional — kept single string for subtlety)
+    new Typed('.role',{
+      strings:['Computer & Communications Engineer'],
+      typeSpeed:60,
+      backSpeed:30,
+      backDelay:4000,
       loop:true,
       showCursor:false
     });
